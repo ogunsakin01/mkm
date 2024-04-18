@@ -70,12 +70,28 @@ or you can directly use PHP built-in server
 php -S localhost:8000 -t public/
 ```
 
-or if you choose to use Laravel Valet, run the command below to have it available at [http://e-com-test.test](http://e-com-test.test)
+or if you choose to use Laravel Valet, run the command below to have it available at [http://mkm.test](http://mkm.test)
 ```shell
 valet link
 ```
-or if you wish to test locally  with SSL, run the command below to have it available  at [https://e-com-test.test](https://e-com-test.test)
+or if you wish to test locally  with SSL, run the command below to have it available  at [https://mkm.test](https://mkm.test)
 ```shell
 valet secure
 ```
+
+
+## Importing products.csv to database
+The import process makes use of Jobs and queues, to start to queue worker, run 
+
+```shell
+php artisan queue:listen
+```
+
+After this, ensure the file to export is named **products.csv** and is in the public directory.
+This csv file must also have the headers, name, sku, brand and description 
+
+if this condition has been met, proceed to access the route 'http://127.0.0.1:8000/import' and the entire process will run in the background
+
+## API Documentation
+You can find the API documentation [here](https://documenter.getpostman.com/view/3172372/2sA3Bn7D3L)
 
