@@ -80,7 +80,11 @@
   ```
 
 ## Importing products.csv to the database
-
+- Setup you queue connection in the env file to database
+  ```dotenv
+   QUEUE_CONNECTION=database
+  ```
+  
 - The import process makes use of Jobs and queues. To start the queue worker, run:
   ```shell
   php artisan queue:listen
